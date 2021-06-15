@@ -1,23 +1,24 @@
 import 'package:equatable/equatable.dart';
 import 'package:trivia_app/core/error/failures.dart';
 
+// ignore: must_be_immutable
 class Resource<T> extends Equatable {
-  final Status status;
-  final T? data;
-  final Failure? errorMessage;
+  Status status;
+  T? data;
+  Failure? errorMessage;
 
-  Resource({required this.status, this.data, this.errorMessage});
+  Resource._({required this.status, this.data, this.errorMessage});
 
-  Resource success({T? data}) {
-    return Resource(status: Status.success, data: data);
+  factory Resource.success({T? data}) {
+    return Resource._(status: Status.success, data: data);
   }
 
-  Resource loading() {
-    return Resource(status: Status.loading);
+  factory Resource.loading() {
+    return Resource._(status: Status.loading);
   }
 
-  Resource error({Failure? error}) {
-    return Resource(status: Status.error, errorMessage: error);
+  factory Resource.error({Failure? error}) {
+    return Resource._(status: Status.error, errorMessage: error);
   }
 
   @override

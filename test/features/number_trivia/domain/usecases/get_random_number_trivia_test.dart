@@ -21,8 +21,7 @@ void main() {
 
   final tNumberTrivia = NumberTrivia(text: 'test', number: 1);
 
-  final answer =
-      Resource<NumberTrivia>(status: Status.success, data: tNumberTrivia);
+  final answer = Resource<NumberTrivia>.success(data: tNumberTrivia);
 
   test('should get trivia from the repository', () async {
     //arrange

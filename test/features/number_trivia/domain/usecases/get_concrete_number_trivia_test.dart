@@ -20,8 +20,7 @@ void main() {
 
   final tNumber = 1;
   final tNumberTrivia = NumberTrivia(text: 'test', number: tNumber);
-  final answer =
-      Resource<NumberTrivia>(status: Status.success, data: tNumberTrivia);
+  final answer = Resource<NumberTrivia>.success(data: tNumberTrivia);
 
   test('should get trivia for the number from the repository', () async {
     //arrange
@@ -36,5 +35,4 @@ void main() {
     verify(mockNumberTriviaRepository!.getConcreteNumberTrivia(tNumber));
     verifyNoMoreInteractions(mockNumberTriviaRepository);
   });
-
 }

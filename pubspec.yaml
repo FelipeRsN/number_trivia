@@ -20,10 +20,10 @@ dependencies:
   # Value equality
   equatable: ^2.0.2
   # Remote API
-  connectivity_plus: ^1.0.1
   http: ^0.13.3
   # Local cache
   shared_preferences: ^2.0.6
+
 
 
 dev_dependencies:
