@@ -23,9 +23,9 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   });
 
   @override
-  Future<Resource<NumberTrivia>>? getConcreteNumberTrivia(int? number) async {
+  Future<Resource<NumberTrivia>>? getConcreteNumberTrivia({required int number}) async {
     return await _getTrivia(() {
-      return numberTriviaRemoteDataSource.getConcreteNumberTrivia(number);
+      return numberTriviaRemoteDataSource.getConcreteNumberTrivia(number: number);
     });
   }
 

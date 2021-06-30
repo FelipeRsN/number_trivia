@@ -1,5 +1,6 @@
-import 'package:mockito/mockito.dart';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:trivia_app/core/network/data_connection_checker.dart';
 import 'package:trivia_app/core/network/network_info.dart';
 
@@ -19,13 +20,13 @@ void main() {
       //arrange
       final tHasConnectionFuture = Future.value(true);
 
-      when(mockDataConnectionChecker!.hasConnection).thenAnswer((_) => tHasConnectionFuture);
+      when(() => mockDataConnectionChecker!.hasConnection).thenAnswer((_) => tHasConnectionFuture);
     
       //act
       final result = networkInfoImpl!.isConnected;      
     
       //assert
-      verify(mockDataConnectionChecker!.hasConnection);
+      verify(() => mockDataConnectionChecker!.hasConnection);
       expect(result, tHasConnectionFuture);
       
     });
